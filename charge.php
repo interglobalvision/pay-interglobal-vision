@@ -25,7 +25,7 @@ try {
     "metadata" => array("customer" => $name),
     ));
 
-  echo $charge;
+  echo $charge['outcome']['type'];
 } catch(\Stripe\Error\Card $e) {
   // The card has been declined
   echo $e;
