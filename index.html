@@ -63,12 +63,6 @@ nope: "js/polyfills/mediaqueries.js"
           <form method="POST" id="payment-form">
             <div class="grid-row margin-bottom-tiny">
               <div class="grid-item item-s-12">
-                <span class="payment-errors"></span>
-              </div>
-            </div>
-
-            <div class="grid-row margin-bottom-tiny">
-              <div class="grid-item item-s-12">
                 <h3>Full Name</h3>
                 <div class="grid-row">
                   <input class="grid-item no-gutter flex-grow" type="text" data-stripe="name" name="name" value="Globie Globe">
@@ -132,6 +126,11 @@ nope: "js/polyfills/mediaqueries.js"
               </div>
             </div>
 
+            <div class="grid-row margin-top-tiny">
+              <div class="grid-item item-s-12">
+                <div id="payment-response">&nbsp;</div>
+              </div>
+            </div>
           </form>
         </main>
 
