@@ -51,6 +51,9 @@ Site.Stripe = {
     var _this = this;
 
     _this.$form.submit(function(event) {
+
+      // Clear response
+      $('#payment-response').attr('class', '').html('&nbsp;');
       
       // Disable the submit button to prevent repeated clicks:
       _this.$form.find('.submit').prop('disabled', true);
@@ -69,7 +72,7 @@ Site.Stripe = {
     if (response.error) { // Problem!
 
       // Show the errors on the form:
-      _this.$form.find('.payment-errors').text(response.error.message);
+      $('#payment-response').attr('class', 'show declined').html(response.error.message);
       _this.$form.find('.submit').prop('disabled', false); // Re-enable submission
 
     } else { // Token was created!
@@ -89,11 +92,17 @@ Site.Stripe = {
       });
        
       request.done(function( msg ) {
-        console.log(msg);
+        _this.$form.find('input[type=text], textarea').val(''); // Clear form values
+        _this.$form.find('.submit').prop('disabled', false); // Re-enable submission
+
+        if (msg == 'authorized') {
+          $('#payment-response').attr('class', 'show authorized').html('Your payment has been authorized. Thank you.');
+        }
       });
        
       request.fail(function( jqXHR, textStatus ) {
-        console.log(textStatus);
+        _this.$form.find('.submit').prop('disabled', false);
+        $('#payment-response').attr('class', 'show declined').html(textStatus + '. Please try again.');
       });
     }
   },
