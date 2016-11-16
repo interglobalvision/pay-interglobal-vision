@@ -60,7 +60,7 @@ nope: "js/polyfills/mediaqueries.js"
             </div>
           </div>
 
-          <form action="/charge.php" method="POST" id="payment-form">
+          <form method="POST" id="payment-form">
             <div class="grid-row margin-bottom-tiny">
               <div class="grid-item item-s-12">
                 <span class="payment-errors"></span>
@@ -71,7 +71,7 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-12">
                 <h3>Full Name</h3>
                 <div class="grid-row">
-                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="name">
+                  <input class="grid-item no-gutter flex-grow" type="text" name="name">
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-12">
                 <h3>Description</h3>
                 <div class="grid-row">
-                  <textarea class="grid-item no-gutter flex-grow" rows="3" data-stripe="description"></textarea>
+                  <textarea class="grid-item no-gutter flex-grow" rows="3" name="description"></textarea>
                 </div>
               </div>
             </div>
@@ -89,14 +89,14 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-8">
                 <h3>Card Number</h3>
                 <div class="grid-row">
-                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="number">
+                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="number" value="4242424242424242">
                 </div>
               </div>
 
               <div class="grid-item item-s-4">
                 <h3>Payment Amount in USD</h3>
                 <div class="grid-row">
-                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="amount">
+                  <input class="grid-item no-gutter flex-grow" type="text" name="amount" placeholder="0.00">
                 </div>
               </div>
             </div>
@@ -105,16 +105,16 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-4">
                 <h3>Expiration</h3>
                 <div class="grid-row">
-                  <input class="grid-item no-gutter flex-grow" type="text" size="2" placeholder="MM" data-stripe="exp_month">
+                  <input class="grid-item no-gutter flex-grow" type="text" size="2" placeholder="MM" data-stripe="exp_month" value="10">
                   <div>&emsp;/&emsp;</div>
-                  <input class="grid-item no-gutter flex-grow" type="text" size="2" placeholder="YY" data-stripe="exp_year">
+                  <input class="grid-item no-gutter flex-grow" type="text" size="2" placeholder="YY" data-stripe="exp_year" value="19">
                 </div>
               </div>
 
               <div class="grid-item item-s-4">
                 <h3>CVC</h3>
                 <div class="grid-row">
-                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="cvc">
+                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="cvc" value="123">
                 </div>
               </div>
 
@@ -131,6 +131,7 @@ nope: "js/polyfills/mediaqueries.js"
                 <input type="submit" class="submit" value="Submit Payment">
               </div>
             </div>
+
           </form>
         </main>
 
@@ -151,7 +152,6 @@ nope: "js/polyfills/mediaqueries.js"
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.1.1.min.js"><\/script>')</script>
       <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-      <script type='text/javascript' src='js/keys.js'></script>
       <script type='text/javascript' src='js/library.js'></script>
       <script type='text/javascript' src='js/main.js'></script>
     </section>
