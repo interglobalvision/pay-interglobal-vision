@@ -30,12 +30,19 @@ Site = {
 };
 
 Site.Stripe = {
+  $form: $('#payment-form'),
   init: function() {
     var _this = this;
 
-    _this.$form = $('#payment-form');
+    // Stripe public keys
+    //
+    // Test:
+    // pk_test_QJv0NVjinlteY6ji0HOrah9n
+    //
+    // Live: 
+    // pk_live_1iLay9wxJyeywHOFX4Q9kMtl
 
-    Stripe.setPublishableKey(Keys.Test.publish);
+    Stripe.setPublishableKey('pk_test_QJv0NVjinlteY6ji0HOrah9n');
 
     _this.createToken();
   },
@@ -49,7 +56,7 @@ Site.Stripe = {
       _this.$form.find('.submit').prop('disabled', true);
 
       // Request a token from Stripe:
-      Stripe.card.createToken(_this.$form, _this.stripeResponseHandler);
+      Stripe.card.createToken(_this.$form, _this.stripeResponseHandler.bind(_this));
 
       // Prevent the form from being submitted:
       return false;
@@ -73,8 +80,21 @@ Site.Stripe = {
       // Insert the token ID into the form so it gets submitted to the server:
       _this.$form.append($('<input type="hidden" name="stripeToken">').val(token));
 
-      // Submit the form:
-      _this.$form.get(0).submit();
+      var values = JSON.stringify(_this.$form.serializeArray());
+
+      var request = $.ajax({
+        url: "charge.php",
+        method: "POST",
+        data: {form: values}
+      });
+       
+      request.done(function( msg ) {
+        console.log(msg);
+      });
+       
+      request.fail(function( jqXHR, textStatus ) {
+        console.log(textStatus);
+      });
     }
   },
 };
