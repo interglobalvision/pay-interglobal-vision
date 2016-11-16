@@ -1,20 +1,33 @@
 <?php
-// Set your secret key: remember to change this to your live secret key in production
-// See your keys here: https://dashboard.stripe.com/account/apikeys
-\Stripe\Stripe::setApiKey("sk_test_7neLDJD2qnl7mtbDbzTyvMJR");
+require_once('vendor/autoload.php');
+require_once('secret-keys.php');
 
 // Get the credit card details submitted by the form
-$token = $_POST['stripeToken'];
+$form = $_POST['form'];
+$form_decode = json_decode($form);
+
+$name = $form_decode[0]->value;
+$description = $form_decode[1]->value;
+$amount = $form_decode[2]->value;
+$token = $form_decode[3]->value;
+
+// Set your secret key: remember to change this to your live secret key in production
+// See your keys here: https://dashboard.stripe.com/account/apikeys
+\Stripe\Stripe::setApiKey($test_key);
 
 // Create a charge: this will charge the user's card
 try {
   $charge = \Stripe\Charge::create(array(
-    "amount" => 1000, // Amount in cents
+    "amount" => $amount * 100, // Amount in cents
     "currency" => "usd",
     "source" => $token,
-    "description" => "Example charge"
+    "description" => $description,
+    "metadata" => array("customer" => $name),
     ));
+
+  echo $charge;
 } catch(\Stripe\Error\Card $e) {
   // The card has been declined
+  echo $e;
 }
 ?>
