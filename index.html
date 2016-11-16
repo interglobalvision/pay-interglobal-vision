@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Site title</title>
+    <title>Pay Interglobal Vision</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="description">
+    <meta name="description" content="Payment form for Interglobal Vision clients and customers">
 
     <meta name="twitter:site" value="@">
     <meta property="og:image" content="image.jpg" />
-    <meta property="og:title" content="Page title" />
-    <meta property="og:site_name" content="Site name" />
+    <meta property="og:title" content="Pay Interglobal Vision" />
+    <meta property="og:site_name" content="Pay Interglobal Vision" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Description">
-    <meta name="twitter:card" value="Description">
+    <meta property="og:description" content="Payment form for Interglobal Vision clients and customers">
+    <meta name="twitter:card" value="Payment form for Interglobal Vision clients and customers">
 
     <link rel="icon" href="img/dist/favicon.png">
     <link rel="shortcut" href="img/dist/favicon.ico">
@@ -65,7 +65,7 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-12">
                 <h3>Full Name</h3>
                 <div class="grid-row">
-                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="name" name="name" value="Globie Globe">
+                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="name" name="name">
                 </div>
               </div>
             </div>
@@ -74,14 +74,14 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-6 item-m-8">
                 <h3>Card Number</h3>
                 <div class="grid-row">
-                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="number" value="4242424242424242">
+                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="number">
                 </div>
               </div>
 
               <div class="grid-item item-s-6 item-m-4">
                 <h3>Payment Amount in USD</h3>
                 <div class="grid-row">
-                  $&nbsp;<input class="grid-item no-gutter flex-grow" type="text" name="amount" placeholder="0.00" value="1200.00">
+                  $&nbsp;<input class="grid-item no-gutter flex-grow" type="text" name="amount" placeholder="0.00">
                 </div>
               </div>
             </div>
@@ -90,21 +90,21 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-4">
                 <h3>Expiration</h3>
                 <div class="grid-row">
-                  <input class="grid-item no-gutter flex-grow" type="text" size="2" placeholder="MM" data-stripe="exp_month" value="10">
+                  <input class="grid-item no-gutter flex-grow" type="text" size="2" placeholder="MM" data-stripe="exp_month">
                   <div>&emsp;/&emsp;</div>
-                  <input class="grid-item no-gutter flex-grow" type="text" size="2" placeholder="YY" data-stripe="exp_year" value="19">
+                  <input class="grid-item no-gutter flex-grow" type="text" size="2" placeholder="YY" data-stripe="exp_year">
                 </div>
               </div>
 
               <div class="grid-item item-s-4">
                 <h3>CVC</h3>
                 <div class="grid-row">
-                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="cvc" value="123">
+                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="cvc" placeholder="420">
                 </div>
               </div>
 
               <div class="grid-item item-s-4">
-                <h3>Billing Zip</h3>
+                <h3>Postal Code</h3>
                 <div class="grid-row">
                   <input class="grid-item no-gutter flex-grow" type="text" data-stripe="address_zip">
                 </div>
@@ -115,7 +115,7 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-12">
                 <h3>Description</h3>
                 <div class="grid-row">
-                  <textarea class="grid-item no-gutter flex-grow" rows="3" name="description">payment for services</textarea>
+                  <textarea class="grid-item no-gutter flex-grow" rows="3" name="description" placeholder="What are you paying for?"></textarea>
                 </div>
               </div>
             </div>
