@@ -71,16 +71,7 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-12">
                 <h3>Full Name</h3>
                 <div class="grid-row">
-                  <input class="grid-item no-gutter flex-grow" type="text" name="name">
-                </div>
-              </div>
-            </div>
-
-            <div class="grid-row margin-bottom-tiny">
-              <div class="grid-item item-s-12">
-                <h3>Description</h3>
-                <div class="grid-row">
-                  <textarea class="grid-item no-gutter flex-grow" rows="3" name="description"></textarea>
+                  <input class="grid-item no-gutter flex-grow" type="text" data-stripe="name" name="name" value="Globie Globe">
                 </div>
               </div>
             </div>
@@ -96,7 +87,7 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-6 item-m-4">
                 <h3>Payment Amount in USD</h3>
                 <div class="grid-row">
-                  <input class="grid-item no-gutter flex-grow" type="text" name="amount" placeholder="0.00">
+                  $&nbsp;<input class="grid-item no-gutter flex-grow" type="text" name="amount" placeholder="0.00" value="1200.00">
                 </div>
               </div>
             </div>
@@ -122,6 +113,15 @@ nope: "js/polyfills/mediaqueries.js"
                 <h3>Billing Zip</h3>
                 <div class="grid-row">
                   <input class="grid-item no-gutter flex-grow" type="text" data-stripe="address_zip">
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-row margin-bottom-tiny">
+              <div class="grid-item item-s-12">
+                <h3>Description</h3>
+                <div class="grid-row">
+                  <textarea class="grid-item no-gutter flex-grow" rows="3" name="description">payment for services</textarea>
                 </div>
               </div>
             </div>
