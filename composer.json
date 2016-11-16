@@ -1,0 +1,12 @@
+{
+    "name": "interglobalvision/payigv",
+    "require": {
+        "stripe/stripe-php": "^4.1"
+    },
+    "authors": [
+        {
+            "name": "Michael Ray-Von",
+            "email": "mikey@Michaels-MacBook-Pro.local"
+        }
+    ]
+}
