@@ -46,22 +46,23 @@ nope: "js/polyfills/mediaqueries.js"
         <!-- start content -->
         <header id="header">
           <div class="grid-row">
-            <div class="grid-item item-s-12 margin-top-small margin-bottom-basic">
+            <div class="grid-item item-s-10 margin-top-small margin-bottom-basic font-size-large">
               Pay Interglobal.Vision
+              <img src = "https://raw.githubusercontent.com/interglobalvision/pay-interglobal-vision/master/screenshot.png" alt="Globie" id="logo">
+              <p class="font-size-basic">for products and services</p>
             </div>
-          </div>
         </header>
 
         <!-- main content -->
         <main id="main-content">
           <div class="grid-row">
             <div class="grid-item item-s-12 margin-bottom-basic">
-              This is a payment form
+        
             </div>
           </div>
 
           <form method="POST" id="payment-form">
-            <div class="grid-row margin-bottom-tiny">
+            <div class="grid-row margin-bottom-tiny font-size-small">
               <div class="grid-item item-s-12">
                 <h3>Full Name</h3>
                 <div class="grid-row">
@@ -71,23 +72,23 @@ nope: "js/polyfills/mediaqueries.js"
             </div>
 
             <div class="grid-row margin-bottom-tiny">
-              <div class="grid-item item-s-6 item-m-8">
+              <div class="grid-item item-s-12 item-m-8 font-size-small">
                 <h3>Card Number</h3>
                 <div class="grid-row">
                   <input class="grid-item no-gutter flex-grow" type="text" data-stripe="number">
                 </div>
               </div>
 
-              <div class="grid-item item-s-6 item-m-4">
-                <h3>Payment Amount in USD</h3>
+              <div class="grid-item item-s-8 item-m-4 font-size-small">
+                <h3>Payment Amount</h3>
                 <div class="grid-row">
-                  $&nbsp;<input class="grid-item no-gutter flex-grow" type="text" name="amount" placeholder="0.00">
+                  <input class="grid-item no-gutter flex-grow" type="text" name="amount" placeholder="0.00">
                 </div>
               </div>
             </div>
 
             <div class="grid-row margin-bottom-tiny">
-              <div class="grid-item item-s-4">
+              <div class="grid-item item-s-8 item-m-4 font-size-small">
                 <h3>Expiration</h3>
                 <div class="grid-row">
                   <input class="grid-item no-gutter flex-grow" type="text" size="2" placeholder="MM" data-stripe="exp_month">
@@ -96,14 +97,14 @@ nope: "js/polyfills/mediaqueries.js"
                 </div>
               </div>
 
-              <div class="grid-item item-s-4">
+              <div class="grid-item item-s-12 item-m-4 font-size-small">
                 <h3>CVC</h3>
                 <div class="grid-row">
                   <input class="grid-item no-gutter flex-grow" type="text" data-stripe="cvc" placeholder="420">
                 </div>
               </div>
 
-              <div class="grid-item item-s-4">
+              <div class="grid-item item-s-12 item-m-4 font-size-small">
                 <h3>Postal Code</h3>
                 <div class="grid-row">
                   <input class="grid-item no-gutter flex-grow" type="text" data-stripe="address_zip">
@@ -112,17 +113,17 @@ nope: "js/polyfills/mediaqueries.js"
             </div>
 
             <div class="grid-row margin-bottom-tiny">
-              <div class="grid-item item-s-12">
+              <div class="grid-item item-s-12 font-size-small">
                 <h3>Description</h3>
                 <div class="grid-row">
-                  <textarea class="grid-item no-gutter flex-grow" rows="3" name="description" placeholder="What are you paying for?"></textarea>
+                  <textarea class="grid-item no-gutter flex-grow" rows="3" name="description" placeholder=""></textarea>
                 </div>
               </div>
             </div>
 
             <div class="grid-row">
               <div class="grid-item item-s-12">
-                <input type="submit" class="submit" value="Submit Payment">
+                <input type="submit" class="submit" value="Make Payment">
               </div>
             </div>
 
@@ -136,8 +137,11 @@ nope: "js/polyfills/mediaqueries.js"
 
         <footer id="footer">
           <div class="grid-row margin-top-basic">
-            <div class="grid-item item-s-12 margin-bottom-small">
-              Globie here
+            <div class="grid-item item-s-12 item-m-8 margin-bottom-small font-size-basic">
+              Interglobal.Vision &copy 2016
+            </div>
+            <div class="grid-item item-s-12 item-m-4 font-size-basic">
+              <a href="">Contact Us</a>
             </div>
           </div>
         </footer>
