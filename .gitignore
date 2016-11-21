@@ -4,3 +4,4 @@
 **/css/site.min.css
 **/js/*.min.js
 **/js/*.min.js.map
+**/secret-keys.php
