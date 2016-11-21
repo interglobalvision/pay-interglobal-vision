@@ -30,14 +30,15 @@ normalize()
 $color-black = rgb(0, 0, 0)
 $color-white = rgb(255, 255, 255)
 $color-grey = rgb(200, 200, 200)
+$color-darkgrey = rgb(169, 169, 169)
 
 // ******************************************************
 
 // BASIC
-
+ 
 html
   background-color: $color-grey
-  color: $color-black
+  color: $color-darkgrey
   
 .container 
   background-color: $color-white
@@ -47,11 +48,30 @@ img
   max-width: 100%
   height: auto
 
+#logo
+  max-width: 15%
+  height: auto
+  float: right
+
 .mobile-only
   display: initial !important 
   
 .desktop-only
   display: none !important
+
+input
+  border-radius: 3px
+  border-style: solid
+  border-width: 2px
+  background-color: white
+  border-color: $color-grey
+
+textarea
+  border-radius: 3px
+  border-style: solid
+  border-width: 2px
+  background-color: white
+  border-color: $color-grey
 
 // ******************************************************
 
@@ -82,19 +102,15 @@ $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
     
-$font-size-basic = 12px
-$font-size-extra = 36px
-$font-size-large = 28px
-$font-size-mid = 21px
-$font-size-small = 16px
-$font-size-tiny = 12px
-$font-size-micro = 10px
+$font-size-basic = 18px
+$font-size-large = 21px
+$font-size-small = 13px
 
 grid(96%, $gutter, s)
 
 space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
 
-font-sizes($font-size-basic, font-size-extra, $font-size-large, $font-size-mid, $font-size-small, $font-size-tiny, $font-size-micro)
+font-sizes($font-size-basic, false, $font-size-large, false, $font-size-small)
 
 @import 'responsive/mobile'
 
@@ -109,13 +125,9 @@ font-sizes($font-size-basic, font-size-extra, $font-size-large, $font-size-mid, 
   $margin-mid = ($gutter * 3.5)
   $margin-large = ($gutter * 5)
   
-  $font-size-basic = 14px
-  
   space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
   
   grid(500px, $gutter, m)
-  
-  font-size($font-size-basic)
   
   .mobile-only
     display: none !important
@@ -132,14 +144,11 @@ font-sizes($font-size-basic, font-size-extra, $font-size-large, $font-size-mid, 
   $margin-basic = ($gutter * 2)
   $margin-mid = ($gutter * 3.5)
   $margin-large = ($gutter * 5)
-  
-  $font-size-basic = 16px
 
   grid(500px, $gutter, l)
   
   space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
   
-  font-size($font-size-basic)
   
   .desktop-only
     display: initial !important
@@ -163,3 +172,6 @@ font-sizes($font-size-basic, font-size-extra, $font-size-large, $font-size-mid, 
 
   grid(1800px)
 */
+
+
+
