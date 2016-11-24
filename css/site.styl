@@ -30,8 +30,9 @@ normalize()
 $color-black = rgb(0, 0, 0)
 $color-black-soft = rgb(25, 25, 25)
 $color-white = rgb(255, 255, 255)
-$color-grey = rgb(200, 200, 200)
-$color-grey-dark = rgb(169, 169, 169)
+$color-grey = rgb(240, 240, 240)
+$color-grey-mid = rgb(186, 188, 190)
+$color-grey-dark = rgb(138, 141, 143)
 $color-pink = rgb(255, 160, 160)
 $color-green = rgb(144, 229, 202)
 
@@ -69,37 +70,23 @@ h1
 
 // ******************************************************
 
-// HEADER 
-
-#header 
-  color: $color-black-soft 
-  
-// ******************************************************
-
 // FORM 
 
 input, textarea
   background-color: $color-white
-  border: $border-width $border-style $color-grey
+  border: $border-width $border-style $color-grey-mid
   border-radius: $border-radius
   color: $color-black-soft
   
 input.submit 
-  background-color: $color-grey
+  background-color: $color-grey-dark
   color: $color-white
   &:hover 
-    background-color: $color-grey-dark
+    background-color: $color-grey-mid
     
 label 
-  color: $color-black-soft
+  color: $color-grey-dark
   font-weight: 500
-
-// ******************************************************
-
-// FOOTER 
-
-#footer 
-  color: $color-black-soft 
 
 // ******************************************************
 
