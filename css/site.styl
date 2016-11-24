@@ -32,8 +32,11 @@ $color-black-soft = rgb(25, 25, 25)
 $color-white = rgb(255, 255, 255)
 $color-grey = rgb(200, 200, 200)
 $color-grey-dark = rgb(169, 169, 169)
+$color-pink = rgb(255, 160, 160)
+$color-green = rgb(144, 229, 202)
+
 $border-radius = 5px
-$border-width = 2px
+$border-width = 1px
 $border-style = solid
 
 // ******************************************************
@@ -52,7 +55,7 @@ img
   height: auto
 
 #logo
-  width: 70px
+  width: 50px
 
 .mobile-only
   display: initial !important 
@@ -105,14 +108,15 @@ label
 #payment-response 
   padding: 10px
   visibility: hidden
+  color: $color-white
   &.show 
     visibility: visible
 
 .authorized 
-  background-color: lightgreen 
+  background-color: $color-green
   
 .declined 
-  background-color: lightpink
+  background-color: $color-pink
   
 // ******************************************************
 
