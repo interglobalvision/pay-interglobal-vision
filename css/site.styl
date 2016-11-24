@@ -28,10 +28,11 @@ normalize()
 // VARIABLES
 
 $color-black = rgb(0, 0, 0)
+$color-black-soft = rgb(25, 25, 25)
 $color-white = rgb(255, 255, 255)
 $color-grey = rgb(200, 200, 200)
 $color-grey-dark = rgb(169, 169, 169)
-$border-radius = 3px
+$border-radius = 5px
 $border-width = 2px
 $border-style = solid
 
@@ -45,14 +46,13 @@ html
   
 .container 
   background-color: $color-white
-  min-height: 100vh
 
 img
   max-width: 100%
   height: auto
 
 #logo
-  width: 60px
+  width: 70px
 
 .mobile-only
   display: initial !important 
@@ -60,10 +60,38 @@ img
 .desktop-only
   display: none !important
 
+h1
+  margin: 0
+  margin-top: 0
+
 input, textarea
-  background-color: white
-  border: $border-style $color-grey $border-width
-  border-radius: 3px
+  background-color: $color-white
+  border: $border-width $border-style $color-grey
+  border-radius: $border-radius
+  color: $color-black-soft
+  
+input.submit 
+  background-color: $color-grey
+  color: $color-white
+  &:hover 
+    background-color: $color-grey-dark
+    
+label 
+  color: $color-black-soft
+
+// ******************************************************
+
+// HEADER 
+
+#header 
+  color: $color-black-soft 
+  
+// ******************************************************
+
+// FOOTER 
+
+#footer 
+  color: $color-black-soft 
 
 // ******************************************************
 
@@ -117,9 +145,9 @@ font-sizes($font-size-basic, false, $font-size-large, false, $font-size-small)
   $margin-mid = ($gutter * 3.5)
   $margin-large = ($gutter * 5)
   
-  space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
+  grid(700px, $gutter, m)
   
-  grid(500px, $gutter, m)
+  space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
   
   .mobile-only
     display: none !important
@@ -140,7 +168,6 @@ font-sizes($font-size-basic, false, $font-size-large, false, $font-size-small)
   grid(500px, $gutter, l)
   
   space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
-  
   
   .desktop-only
     display: initial !important
