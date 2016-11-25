@@ -53,7 +53,7 @@ Site.Stripe = {
     _this.$form.submit(function(event) {
 
       // Clear response
-      $('#payment-response').attr('class', '').html('&nbsp;');
+      $('#payment-response').removeClass('show approved declined').html('&nbsp;');
       
       // Disable the submit button to prevent repeated clicks:
       _this.$form.find('.submit').prop('disabled', true);
@@ -72,7 +72,7 @@ Site.Stripe = {
     if (response.error) { // Problem!
 
       // Show the errors on the form:
-      $('#payment-response').attr('class', 'show declined').html(response.error.message);
+      $('#payment-response').addClass('show declined').html(response.error.message);
       _this.$form.find('.submit').prop('disabled', false); // Re-enable submission
 
     } else { // Token was created!
@@ -96,13 +96,13 @@ Site.Stripe = {
         _this.$form.find('.submit').prop('disabled', false); // Re-enable submission
 
         if (msg == 'authorized') {
-          $('#payment-response').attr('class', 'show authorized').html('Your payment has been authorized. Thank you.');
+          $('#payment-response').addClass('show authorized').html('Your payment has been authorized. Thank you.');
         }
       });
        
       request.fail(function( jqXHR, textStatus ) {
         _this.$form.find('.submit').prop('disabled', false);
-        $('#payment-response').attr('class', 'show declined').html(textStatus + '. Please try again.');
+        $('#payment-response').addClass('show declined').html(textStatus + '. Please try again.');
       });
     }
   },

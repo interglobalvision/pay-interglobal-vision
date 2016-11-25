@@ -30,10 +30,14 @@ normalize()
 $color-black = rgb(0, 0, 0)
 $color-black-soft = rgb(25, 25, 25)
 $color-white = rgb(255, 255, 255)
-$color-grey = rgb(200, 200, 200)
-$color-grey-dark = rgb(169, 169, 169)
+$color-grey = rgb(240, 240, 240)
+$color-grey-mid = rgb(186, 188, 190)
+$color-grey-dark = rgb(138, 141, 143)
+$color-pink = rgb(255, 160, 160)
+$color-green = rgb(144, 229, 202)
+
 $border-radius = 5px
-$border-width = 2px
+$border-width = 1px
 $border-style = solid
 
 // ******************************************************
@@ -52,7 +56,7 @@ img
   height: auto
 
 #logo
-  width: 70px
+  width: 50px
 
 .mobile-only
   display: initial !important 
@@ -64,34 +68,25 @@ h1
   margin: 0
   margin-top: 0
 
+// ******************************************************
+
+// FORM 
+
 input, textarea
   background-color: $color-white
-  border: $border-width $border-style $color-grey
+  border: $border-width $border-style $color-grey-mid
   border-radius: $border-radius
   color: $color-black-soft
   
 input.submit 
-  background-color: $color-grey
+  background-color: $color-grey-dark
   color: $color-white
   &:hover 
-    background-color: $color-grey-dark
+    background-color: $color-grey-mid
     
 label 
-  color: $color-black-soft
-
-// ******************************************************
-
-// HEADER 
-
-#header 
-  color: $color-black-soft 
-  
-// ******************************************************
-
-// FOOTER 
-
-#footer 
-  color: $color-black-soft 
+  color: $color-grey-dark
+  font-weight: 500
 
 // ******************************************************
 
@@ -100,14 +95,15 @@ label
 #payment-response 
   padding: 10px
   visibility: hidden
+  color: $color-white
   &.show 
     visibility: visible
 
 .authorized 
-  background-color: lightgreen 
+  background-color: $color-green
   
 .declined 
-  background-color: lightpink
+  background-color: $color-pink
   
 // ******************************************************
 
@@ -165,7 +161,7 @@ font-sizes($font-size-basic, false, $font-size-large, false, $font-size-small)
   $margin-mid = ($gutter * 3.5)
   $margin-large = ($gutter * 5)
 
-  grid(500px, $gutter, l)
+  grid(700px, $gutter, l)
   
   space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
   
