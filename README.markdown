@@ -1,23 +1,4 @@
-globie-static-starter-pack
----
-v 1.0.0
+pay up ^ pay up
+---------------
 
-Starting point for single pages
-
-```
-git clone --recursive --depth 1 git@github.com:interglobalvision/interglobalvision-single-page-boil.git some-project
-cd some-project
-rm -rf .git
-git init
-```
-
-Tech this uses [thnx]:
-
-- http://gulpjs.com/
-
----
-
-#### Setup
-
-- `npm install`
-- `gulp build` or `gulp`
+People want to pay us. They want to give us all the money they can. So we let them do it. You could try it out yourself (no refunds) at pay.interglobal.vision
