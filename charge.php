@@ -8,8 +8,9 @@ $form_decode = json_decode($form);
 
 $name = $form_decode[0]->value;
 $amount = $form_decode[1]->value;
-$description = $form_decode[2]->value;
-$token = $form_decode[3]->value;
+$currency = $form_decode[2]->value;
+$description = $form_decode[3]->value;
+$token = $form_decode[4]->value;
 
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
