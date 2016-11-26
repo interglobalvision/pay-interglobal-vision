@@ -20,7 +20,7 @@ $token = $form_decode[4]->value;
 try {
   $charge = \Stripe\Charge::create(array(
     "amount" => $amount * 100, // Amount in cents
-    "currency" => "usd",
+    "currency" => $currency,
     "source" => $token,
     "description" => $description,
     "metadata" => array("customer" => $name),
