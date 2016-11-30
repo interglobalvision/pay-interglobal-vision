@@ -35,6 +35,7 @@ $color-grey-mid = rgb(186, 188, 190)
 $color-grey-dark = rgb(138, 141, 143)
 $color-pink = rgb(255, 160, 160)
 $color-green = rgb(144, 229, 202)
+$color-focus = rgb(158,202,237)
 
 $border-radius = 5px
 $border-width = 1px
@@ -72,11 +73,15 @@ h1
 
 // FORM 
 
-input, textarea
+input, textarea, select
   background-color: $color-white
   border: $border-width $border-style $color-grey-mid
   border-radius: $border-radius
   color: $color-black-soft
+  appearance: none
+  &:focus 
+    outline: none
+    box-shadow: 0 0 10px $color-focus
   
 input.submit 
   background-color: $color-grey-dark

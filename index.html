@@ -69,17 +69,23 @@ nope: "js/polyfills/mediaqueries.js"
             </div>
 
             <div class="grid-row margin-bottom-tiny">
-              <div class="grid-item item-s-12 item-m-8">
+              <div class="grid-item item-s-12 item-m-6">
                 <label class="font-size-small">Card Number</label>
                 <div class="grid-row">
-                  <input class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" type="text" data-stripe="number" maxlength="19">
+                  <input class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" type="text" data-stripe="number" maxlength="16">
                 </div>
               </div>
 
-              <div class="grid-item item-s-12 item-m-4">
+              <div class="grid-item item-s-12 item-m-6">
                 <label class="font-size-small">Payment Amount</label>
                 <div class="grid-row">
-                  <input class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" type="text" name="amount" placeholder="0.00" maxlength="8">
+                  <input class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" type="text" name="amount" placeholder="0.00" maxlength="10">
+                  <select id="currency-select" class="grid-item padding-top-tiny padding-bottom-tiny" name="currency">
+                    <option value="usd">USD</option>
+                    <option value="eur">EUR</option>
+                    <option value="gbp">GBP</option>
+                    <option value="mxn">MXN</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -97,14 +103,14 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-12 item-m-4">
                 <label class="font-size-small">CVC</label>
                 <div class="grid-row">
-                  <input class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" type="text" data-stripe="cvc" placeholder="420" maxlength="4">
+                  <input class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" type="text" data-stripe="cvc" placeholder="420" maxlength="3">
                 </div>
               </div>
 
               <div class="grid-item item-s-12 item-m-4">
                 <label class="font-size-small">Postal Code</label>
                 <div class="grid-row">
-                  <input class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" type="text" data-stripe="address_zip" maxlength="5">
+                  <input class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" type="text" data-stripe="address_zip" maxlength="6">
                 </div>
               </div>
             </div>
@@ -113,7 +119,7 @@ nope: "js/polyfills/mediaqueries.js"
               <div class="grid-item item-s-12">
                 <label class="font-size-small">Description</label>
                 <div class="grid-row">
-                  <textarea class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" rows="3" name="description" placeholder="" maxlength="80"></textarea>
+                  <textarea class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" rows="3" name="description" placeholder="Brief reason for payment" maxlength="80"></textarea>
                 </div>
               </div>
             </div>
