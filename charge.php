@@ -6,11 +6,11 @@ require_once('secret-keys.php');
 $form = $_POST['form'];
 $form_decode = json_decode($form);
 
-$name = $form_decode[0]->value;
-$amount = $form_decode[1]->value;
-$currency = $form_decode[2]->value;
-$description = $form_decode[3]->value;
-$token = $form_decode[4]->value;
+$name = filter_var($form_decode[0]->value, FILTER_SANITIZE_STRING);
+$amount = filter_var($form_decode[1]->value, FILTER_VALIDATE_FLOAT);
+$currency = filter_var($form_decode[2]->value, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$description = filter_var($form_decode[3]->value, FILTER_SANITIZE_STRING);
+$token = filter_var($form_decode[4]->value, FILTER_SANITIZE_SPECIAL_CHARS);
 
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
