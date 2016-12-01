@@ -92,12 +92,31 @@ Site.Stripe = {
       });
        
       request.done(function( msg ) {
-        _this.$form.find('input[type=text], textarea').val(''); // Clear form values
+        //_this.$form.find('input[type=text], textarea').val(''); // Clear form values
         _this.$form.find('.submit').prop('disabled', false); // Re-enable submission
 
+        var responseClass,
+          responseMsg;
+
         if (msg == 'authorized') {
-          $('#payment-response').addClass('show authorized').html('Your payment has been authorized. Thank you.');
+          responseClass = 'authorized';
+          responseMessage = 'Your payment has been authorized. Thank you.';
+        } else if (msg == 'manual_review') {
+          responseClass = 'authorized';
+          responseMessage = 'Your payment is in review. We will contact you at the provided email if any further action is required. Thank you.';
+        } else {
+          // Stripe error caught
+          try {
+            var parsedData = JSON.parse(msg);
+            responseClass = 'declined';
+            responseMessage = parsedData.message;
+          } catch (e) {
+            responseClass = 'declined';
+            responseMessage = msg;
+          }
         }
+
+        $('#payment-response').addClass('show ' + responseClass).html(responseMessage);
       });
        
       request.fail(function( jqXHR, textStatus ) {
