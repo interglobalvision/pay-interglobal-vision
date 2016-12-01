@@ -92,7 +92,7 @@ Site.Stripe = {
       });
        
       request.done(function( msg ) {
-        //_this.$form.find('input[type=text], textarea').val(''); // Clear form values
+        _this.$form.find('input[type=text], textarea').val(''); // Clear form values
         _this.$form.find('.submit').prop('disabled', false); // Re-enable submission
 
         var responseClass,
