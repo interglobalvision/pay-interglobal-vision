@@ -107,10 +107,12 @@ Site.Stripe = {
         } else {
           // Stripe error caught
           try {
+            // try to parse json. this would indicated a '\Stripe\Error\Card' was returned.
             var parsedData = JSON.parse(msg);
             responseClass = 'declined';
             responseMessage = parsedData.message;
           } catch (e) {
+            // not json data! this indicates a different error. so just print the error message defined in charge.php
             responseClass = 'declined';
             responseMessage = msg;
           }
