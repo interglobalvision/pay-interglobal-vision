@@ -28,7 +28,30 @@ try {
 
   echo $charge['outcome']['type'];
 } catch(\Stripe\Error\Card $e) {
-  // The card has been declined
-  echo $e;
+  // Since it's a decline, \Stripe\Error\Card will be caught
+  $body = $e->getJsonBody();
+  $err  = $body['error'];
+
+  echo json_encode($err);
+} catch (\Stripe\Error\RateLimit $e) {
+  // Too many requests made to the API too quickly
+  echo 'Too many requests were made too quickly! Please wait a moment and then try again. If you continue to receive this error, please contact us at <a href="mailto:globie@interglobal.vision">globie@interglobal.vision</a> with this error message.';
+} catch (\Stripe\Error\InvalidRequest $e) {
+  // Invalid parameters were supplied to Stripe's API
+  echo 'Invalid request. Please try again, or contact us at <a href="mailto:globie@interglobal.vision">globie@interglobal.vision</a> with this error message.';
+} catch (\Stripe\Error\Authentication $e) {
+  // Authentication with Stripe's API failed
+  // (maybe you changed API keys recently)
+  echo 'Authentication failed. Please contact us at <a href="mailto:globie@interglobal.vision">globie@interglobal.vision</a> with this error message.';
+} catch (\Stripe\Error\ApiConnection $e) {
+  // Network communication with Stripe failed
+  echo 'Network communication failed. Please try again, or contact us at <a href="mailto:globie@interglobal.vision">globie@interglobal.vision</a> with this error message.';
+} catch (\Stripe\Error\Base $e) {
+  // Display a very generic error to the user, and maybe send
+  // yourself an email
+  echo 'An unknown payment error occurred. Please try again, or contact us at <a href="mailto:globie@interglobal.vision">globie@interglobal.vision</a> with this error message.';
+} catch (Exception $e) {
+  // Something else happened, completely unrelated to Stripe
+  echo 'Exception: An unknown error occurred. Please try again, or contact us at <a href="mailto:globie@interglobal.vision">globie@interglobal.vision</a> with this error message.';
 }
 ?>
