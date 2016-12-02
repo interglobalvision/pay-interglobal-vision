@@ -92,6 +92,11 @@ input.submit
   color: $color-white
   &:hover 
     background-color: $color-grey-mid
+  &[disabled]
+    background-color: $color-grey
+    border-color: $color-grey
+    &:hover 
+      background-color: $color-grey
     
 label 
   color: $color-grey-dark

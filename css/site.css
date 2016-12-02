@@ -780,6 +780,13 @@ input.submit {
 input.submit:hover {
   background-color: #babcbe;
 }
+input.submit[disabled] {
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
+}
+input.submit[disabled]:hover {
+  background-color: #f0f0f0;
+}
 label {
   color: #8a8d8f;
   font-weight: 500;
