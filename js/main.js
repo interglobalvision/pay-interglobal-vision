@@ -91,23 +91,19 @@ Site.Stripe = {
       });
 
       request.done(function( msg ) {
-        _this.$form.find('input[type=text], textarea').val(''); // Clear form values
-        _this.$form.find('.submit').prop('disabled', false); // Re-enable submission
-        $('#stripeToken').remove(); // Remove token input
-
         var responseClass;
         var responseMessage;
 
         if (msg === 'authorized') {
+          _this.$form.find('input[name=amount]').val(''); // Clear amount value
 
           responseClass = 'authorized';
           responseMessage = 'Your payment has been authorized. Thank you.';
-
         } else if (msg === 'manual_review') {
+          _this.$form.find('input[name=amount]').val(''); // Clear amount value
 
           responseClass = 'authorized';
           responseMessage = 'Your payment is in review. We will contact you at the provided email if any further action is required. Thank you.';
-
         } else {
           // Stripe error caught
           try {
@@ -123,7 +119,10 @@ Site.Stripe = {
           }
         }
 
-        $('#payment-response').addClass('show ' + responseClass).html(responseMessage);
+        $('#payment-response').addClass('show ' + responseClass).html(responseMessage); // Show response message
+
+        $('#stripeToken').remove(); // Remove token input
+        _this.$form.find('.submit').prop('disabled', false); // Re-enable submission
       });
 
       request.fail(function( jqXHR, textStatus ) {
