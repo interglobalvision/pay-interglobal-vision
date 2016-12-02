@@ -43,8 +43,7 @@ try {
   echo 'Too many requests were made too quickly! Please wait a moment and then try again. If you continue to receive this error, please contact us at <a href="mailto:globie@interglobal.vision">globie@interglobal.vision</a> with this error message.';
 } catch (\Stripe\Error\InvalidRequest $e) {
   // Invalid parameters were supplied to Stripe's API
-  echo $e;
-  //echo 'Invalid request. Please try again, or contact us at <a href="mailto:globie@interglobal.vision">globie@interglobal.vision</a> with this error message.';
+  echo 'Invalid request. Please try again, or contact us at <a href="mailto:globie@interglobal.vision">globie@interglobal.vision</a> with this error message.';
 } catch (\Stripe\Error\Authentication $e) {
   // Authentication with Stripe's API failed
   // (maybe you changed API keys recently)
