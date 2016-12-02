@@ -34,10 +34,10 @@ Site.Stripe = {
     var _this = this;
 
     // Stripe public keys
-    var pk_test = 'pk_test_QJv0NVjinlteY6ji0HOrah9n',
-      pk_live = 'pk_live_1iLay9wxJyeywHOFX4Q9kMtl';
+    // Text: 'pk_test_QJv0NVjinlteY6ji0HOrah9n'
+    // Live: 'pk_live_1iLay9wxJyeywHOFX4Q9kMtl'
 
-    Stripe.setPublishableKey(pk_live);
+    Stripe.setPublishableKey('pk_live_1iLay9wxJyeywHOFX4Q9kMtl');
 
     _this.createToken();
   },
