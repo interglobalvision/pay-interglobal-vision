@@ -81,7 +81,7 @@ Site.Stripe = {
       var token = response.id;
 
       // Insert the token ID into the form so it gets submitted to the server:
-      _this.$form.append($('<input type="hidden" name="stripeToken">').val(token));
+      _this.$form.append($('<input id="stripeToken" type="hidden" name="stripeToken">').val(token));
 
       var values = JSON.stringify(_this.$form.serializeArray());
 
@@ -94,9 +94,12 @@ Site.Stripe = {
       request.done(function( msg ) {
         _this.$form.find('input[type=text], textarea').val(''); // Clear form values
         _this.$form.find('.submit').prop('disabled', false); // Re-enable submission
+        $('#stripeToken').remove(); // Remove token input
 
         var responseClass,
           responseMsg;
+
+        console.log(msg);
 
         if (msg == 'authorized') {
           responseClass = 'authorized';
@@ -110,6 +113,7 @@ Site.Stripe = {
             // try to parse json. this would indicated a '\Stripe\Error\Card' was returned.
             var parsedData = JSON.parse(msg);
             responseClass = 'declined';
+            console.log(parsedData);
             responseMessage = parsedData.message;
           } catch (e) {
             // not json data! this indicates a different error. so just print the error message defined in charge.php
