@@ -15,7 +15,7 @@ $token = filter_var($form_decode[5]->value, FILTER_SANITIZE_SPECIAL_CHARS);
 
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
-\Stripe\Stripe::setApiKey($test_key);
+\Stripe\Stripe::setApiKey($live_key);
 
 // Create a charge: this will charge the user's card
 try {
