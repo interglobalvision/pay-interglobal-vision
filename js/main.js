@@ -84,8 +84,6 @@ Site.Stripe = {
 
       var values = JSON.stringify(_this.$form.serializeArray());
 
-      console.log(values);
-
       var request = $.ajax({
         url: "charge.php",
         method: "POST",
