@@ -30,10 +30,13 @@ Site = {
 
 Site.Stripe = {
   $form: $('#payment-form'),
+
   testKeyA: 'pk_test_QJv0NVjinlteY6ji0HOrah9n',
   liveKeyA: 'pk_live_1iLay9wxJyeywHOFX4Q9kMtl',
+  
   testKeyB: 'pk_test_XqjhUs5z83vj7X4uUohFC2J300RpoMc1nB',
   liveKeyB: 'pk_live_k8J53br7XdzaJwVUZzJHSk9i00oryWkPx3',
+
   init: function() {
     var _this = this;
 
@@ -51,7 +54,8 @@ Site.Stripe = {
       // Disable the submit button to prevent repeated clicks:
       _this.$form.find('.submit').prop('disabled', true);
 
-      var apiKey = $('#destination-select').val() === 'a' ? _this.testKeyA : _this.testKeyB;
+      //var apiKey = $('#destination-select').val() === 'a' ? _this.testKeyA : _this.testKeyB;
+      var apiKey = $('#destination-select').val() === 'a' ? _this.liveKeyA : _this.liveKeyB;
 
       console.log(apiKey);
 

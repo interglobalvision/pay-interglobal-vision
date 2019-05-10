@@ -16,7 +16,8 @@ $token = filter_var($form_decode[6]->value, FILTER_SANITIZE_SPECIAL_CHARS);
 
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
-$api_key = $destination === 'a' ? $test_key_a : $test_key_b;
+//$api_key = $destination === 'a' ? $test_key_a : $test_key_b;
+$api_key = $destination === 'a' ? $live_key_a : $live_key_b;
 
 \Stripe\Stripe::setApiKey($api_key);
 
