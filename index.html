@@ -96,7 +96,7 @@
                 </div>
               </div>
 
-              <div class="grid-item item-s-12 item-m-4">
+              <div class="grid-item item-s-12 item-m-2">
                 <label class="font-size-small">CVC</label>
                 <div class="grid-row">
                   <input class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" type="text" data-stripe="cvc" placeholder="420" maxlength="3">
@@ -107,6 +107,16 @@
                 <label class="font-size-small">Postal Code</label>
                 <div class="grid-row">
                   <input class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" type="text" data-stripe="address_zip" maxlength="6">
+                </div>
+              </div>
+
+              <div class="grid-item item-s-12 item-m-2">
+                <label class="font-size-small">Destination</label>
+                <div class="grid-row">
+                  <select id="destination-select" class="grid-item padding-top-tiny padding-bottom-tiny flex-grow" name="destination">
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                  </select>
                 </div>
               </div>
             </div>
