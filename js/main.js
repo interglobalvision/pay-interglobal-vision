@@ -30,14 +30,12 @@ Site = {
 
 Site.Stripe = {
   $form: $('#payment-form'),
+  testKeyA: 'pk_test_QJv0NVjinlteY6ji0HOrah9n',
+  liveKeyA: 'pk_live_1iLay9wxJyeywHOFX4Q9kMtl',
+  testKeyB: 'pk_test_XqjhUs5z83vj7X4uUohFC2J300RpoMc1nB',
+  liveKeyB: 'pk_live_k8J53br7XdzaJwVUZzJHSk9i00oryWkPx3',
   init: function() {
     var _this = this;
-
-    // Stripe public keys
-    // Text: 'pk_test_QJv0NVjinlteY6ji0HOrah9n'
-    // Live: 'pk_live_1iLay9wxJyeywHOFX4Q9kMtl'
-
-    Stripe.setPublishableKey('pk_live_1iLay9wxJyeywHOFX4Q9kMtl');
 
     _this.createToken();
   },
@@ -52,6 +50,12 @@ Site.Stripe = {
 
       // Disable the submit button to prevent repeated clicks:
       _this.$form.find('.submit').prop('disabled', true);
+
+      var apiKey = $('#destination-select').val() === 'a' ? _this.testKeyA : _this.testKeyB;
+
+      console.log(apiKey);
+
+      Stripe.setPublishableKey(apiKey);
 
       // Request a token from Stripe:
       Stripe.card.createToken(_this.$form, _this.stripeResponseHandler.bind(_this));
@@ -79,6 +83,8 @@ Site.Stripe = {
       _this.$form.append($('<input id="stripeToken" type="hidden" name="stripeToken">').val(token));
 
       var values = JSON.stringify(_this.$form.serializeArray());
+
+      console.log(values);
 
       var request = $.ajax({
         url: "charge.php",

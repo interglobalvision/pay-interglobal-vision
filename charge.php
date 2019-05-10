@@ -10,12 +10,15 @@ $name = filter_var($form_decode[0]->value, FILTER_SANITIZE_STRING);
 $email = filter_var($form_decode[1]->value, FILTER_VALIDATE_EMAIL);
 $amount = filter_var($form_decode[2]->value, FILTER_VALIDATE_FLOAT);
 $currency = filter_var($form_decode[3]->value, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$description = filter_var($form_decode[4]->value, FILTER_SANITIZE_STRING);
-$token = filter_var($form_decode[5]->value, FILTER_SANITIZE_SPECIAL_CHARS);
+$destination = filter_var($form_decode[4]->value, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$description = filter_var($form_decode[5]->value, FILTER_SANITIZE_STRING);
+$token = filter_var($form_decode[6]->value, FILTER_SANITIZE_SPECIAL_CHARS);
 
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
-\Stripe\Stripe::setApiKey($live_key);
+$api_key = $destination === 'a' ? $test_key_a : $test_key_b;
+//echo $api_key;
+\Stripe\Stripe::setApiKey($test_key_a);
 
 // Create a charge: this will charge the user's card
 try {
@@ -25,7 +28,7 @@ try {
     "source" => $token,
     "description" => $description,
     "metadata" => array(
-      "customer" => $name, 
+      "customer" => $name,
       "email" => $email,
     ),
     "receipt_email" => $email,
