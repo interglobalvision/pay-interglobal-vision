@@ -1,4 +1,4 @@
 <?php 
-$test_key = 'sk_test_7neLDJD2qnl7mtbDbzTyvMJR';
-$live_key = 'sk_test_7neLDJD2qnl7mtbDbzTyvMJR';
+$test_key = 'sk_test_myTestKeyId';
+$live_key = 'sk_live_myLiveKeyId';
 ?>
